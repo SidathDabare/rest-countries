@@ -1,0 +1,31 @@
+/** @format */
+:root{
+--dark-blue : hsl(209, 23%, 22%);
+--very-dark-blue: hsl(207, 26%, 17%);
+--dark-gray: hsl(0, 0%, 52%);
+--very--light--gray: hsl(0, 0%, 98%);
+--light-gray: hsl(0, 0%, 100%):
+}
+.my-navbar {
+  height: 60px; 
+  width: 100% !important; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+
+}
+.my-nav-dark {
+  background-color: var(--dark-blue);
+  color: var(--very--light--gray);
+}
+.my-nav-light {
+  background-color: var(--very--light--gray);
+  color: var(--dark-gray);
+}
+.icon-sizes {
+  font-size: 16px !important;
+}
+.font-size {
+  font-size: 16px !important;
+}
