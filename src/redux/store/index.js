@@ -6,22 +6,16 @@ import { persistStore, persistReducer } from "redux-persist"
 import { setColorReducer } from "../reducer/setColorReducer"
 
 import storage from "redux-persist/lib/storage"
+import setCountryReducer from "../reducer/setCountryReducer"
 
 const persistConfig = {
   key: "root",
   storage,
-  transforms: [
-    encryptTransform({
-      onError: (error) => {
-        console.log(error)
-      },
-      secretKey: "my-super-secret-key",
-    }),
-  ],
 }
 
 const combinedReducer = combineReducers({
   setColor: setColorReducer,
+  setCountry: setCountryReducer,
 })
 const persistedReducer = persistReducer(persistConfig, combinedReducer)
 

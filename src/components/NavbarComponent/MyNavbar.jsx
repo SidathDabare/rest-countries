@@ -19,7 +19,7 @@ const MyNavbar = () => {
     <div
       className={
         !themeColor
-          ? "col-12 my-navbar my-nav-dark border-bottom"
+          ? "col-12 my-navbar my-nav-dark"
           : "col-12 my-navbar my-nav-light border-bottom"
       }>
       <div className='nav-container col-11 d-flex mx-auto align-items-center'>
@@ -34,9 +34,9 @@ const MyNavbar = () => {
             // setToggleBtn(false)
           }}>
           {themeColor ? (
-            <DarkModeOutlinedIcon className='icon-sizes mx-1' />
+            <DarkModeOutlinedIcon className='icon-sizes mx-2' />
           ) : (
-            <DarkModeIcon className='icon-sizes mx-1' />
+            <DarkModeIcon className='icon-sizes mx-2' />
           )}
 
           <h6 className='font-size mb-0 fw-bold'>Dark Mode</h6>

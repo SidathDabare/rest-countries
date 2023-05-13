@@ -6,13 +6,28 @@ import InputGroup from "react-bootstrap/InputGroup"
 import Form from "react-bootstrap/Form"
 import SearchIcon from "@mui/icons-material/Search"
 import { useSelector } from "react-redux"
+import data from "../../data.json"
+import { useEffect, useState } from "react"
 
-const SearchBarComponent = () => {
+const SearchBarComponent = (props) => {
   const themeColor = useSelector((state) => state.setColor.selectedColor)
+
+  // const searchByName = (name) => {
+  //   if (name.length > 1) {
+  //     const filteredCountries = data.filter((country) =>
+  //       country.name.toLowerCase().includes(name.toLowerCase())
+  //     )
+  //     props.setcountries(filteredCountries)
+  //   } else {
+  //     props.setcountries(data)
+  //   }
+  // }
+  useEffect(() => {}, [props])
+
   return (
     <div className='search-bar col-12'>
-      <div className='search-container col-11 d-flex mx-auto justify-content-between align-items-center'>
-        <div className='col-5'>
+      <div className='search-container col-11 d-flex flex-column flex-md-row mx-auto justify-content-between align-items-center'>
+        <div className='col-10 col-sm-10 col-md-5 col-lg-5'>
           <InputGroup
             className={
               !themeColor
@@ -37,14 +52,21 @@ const SearchBarComponent = () => {
               placeholder='Search for a country'
               aria-label='Search for a country'
               aria-describedby='basic-addon1'
+              onChange={(e) => props.setsearch(e.target.value)}
             />
           </InputGroup>
         </div>
-        <div className='col-2 d-flex justify-content-end align-items-center'>
+        <div className='select-div col-6 col-sm-6 col-md-5 col-lg-2  d-flex justify-content-end align-items-center '>
           <Form.Select
             aria-label='Default select example'
-            className='bg-transparent'>
-            <option selected>Filter by Region</option>
+            defaultValue={"Filter by Region"}
+            className={
+              !themeColor
+                ? "select-item search-bar-dark select-item-shadow-dark"
+                : "select-item search-bar-light select-item-shadow-light"
+            }
+            onChange={(e) => props.filterbyregion(e.target.value)}>
+            <option value='all'>Filter by Region</option>
             <option value='africa'>Africa</option>
             <option value='america'>America</option>
             <option value='asia'>Asia</option>

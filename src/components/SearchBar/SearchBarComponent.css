@@ -1,10 +1,15 @@
 /** @format */
-:root{
---dark-blue : hsl(209, 23%, 22%);
---very-dark-blue: hsl(207, 26%, 17%);
---dark-gray: hsl(0, 0%, 52%);
---very--light--gray: hsl(0, 0%, 98%);
---light-gray: hsl(0, 0%, 100%):
+:root {
+  --dark-blue: hsl(209, 23%, 22%);
+  --very-dark-blue: hsl(207, 26%, 17%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --very--light--gray: hsl(0, 0%, 98%);
+  --light-gray: hsl(0, 0%, 100%);
+  --shadow-light: 2px 2px 10px 1px #00000020;
+  --shadow-very-light: 2px 4px 10px 1px #00000024;
+  --shadow-dark: 2px 2px 10px 1px #0000002e;
+  --shadow-very-dark: 2px 4px 10px 1px #00000042;
+  --thing-border: 0.2px solid #00000020;
 }
 .search-bar {
   height: 100px;
@@ -20,33 +25,73 @@
   background-color: var(--very--light--gray);
   color: var(--dark-gray);
 }
+.input-item {
+  border: none !important;
+}
 .border-left-none {
   border-left: none;
 }
 .border-right-none {
   border-right: none;
 }
+
 .input-item-shadow-dark {
-  border: none !important;
-  outline: none !important;
-  box-shadow: 1px 1px 15px 1px #0000008a !important;
+  box-shadow: var(--shadow-dark) !important;
   border-radius: 5px;
   padding: 5px 0;
+  transition: all 0.5s ease-in-out;
+}
+.input-item-shadow-dark:hover {
+  box-shadow: var(--shadow-very-dark) !important;
+  transition: all 0.5s ease-in-out;
 }
 .input-item-shadow-light {
-  border: none !important;
-  outline: none !important;
-  box-shadow: 1px 1px 15px 2px #a9a9a99a !important;
+  border: var(--thing-border) !important;
+  box-shadow: var(--shadow-light) !important;
   border-radius: 5px;
   padding: 5px 0;
 }
-
-.input-item {
-  border: none !important;
+.input-item-shadow-light:hover {
+  box-shadow: var(--shadow-very-light) !important;
+  transition: all 0.5s ease-in-out;
 }
+
+.select-item-shadow-dark {
+  border: none !important;
+  outline: none !important;
+  box-shadow: var(--shadow-dark) !important;
+  border-radius: 5px;
+  padding: 10px 0 10px 10px !important;
+}
+.select-item-shadow-light {
+  border: none !important;
+  outline: none !important;
+  border: var(--thing-border) !important;
+  box-shadow: var(--shadow-light) !important;
+  border-radius: 5px;
+  padding: 10px 0 10px 10px !important;
+}
+.select-item-shadow-light:hover {
+  box-shadow: var(--shadow-very-light) !important;
+}
+
 .input-item:focus {
   box-shadow: none !important;
   outline: none !important;
   background-color: transparent !important;
   border: none !important;
+}
+.select-item:focus {
+  outline: none !important;
+
+  border: none !important;
+  box-shadow: var(--shadow-dark) !important;
+}
+@media only screen and (max-width: 768px) {
+  .search-container {
+    align-items: flex-start !important;
+  }
+  .search-container div {
+    margin-top: 10px;
+  }
 }

@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Home from "./pages/Home/Home"
 import { useSelector } from "react-redux"
 import MyNavbar from "./components/NavbarComponent/MyNavbar"
+import DetailsPage from "./pages/Details-page/DetailsPage"
 
 function App() {
   const themeColor = useSelector((state) => state.setColor.selectedColor)
@@ -14,6 +15,7 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/:country' element={<DetailsPage />} />
         </Routes>
       </BrowserRouter>
     </div>
