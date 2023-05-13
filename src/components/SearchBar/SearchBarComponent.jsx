@@ -1,27 +1,15 @@
 /** @format */
 
-import { Row } from "react-bootstrap"
 import "./SearchBarComponent.css"
 import InputGroup from "react-bootstrap/InputGroup"
 import Form from "react-bootstrap/Form"
 import SearchIcon from "@mui/icons-material/Search"
 import { useSelector } from "react-redux"
-import data from "../../data.json"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 const SearchBarComponent = (props) => {
   const themeColor = useSelector((state) => state.setColor.selectedColor)
 
-  // const searchByName = (name) => {
-  //   if (name.length > 1) {
-  //     const filteredCountries = data.filter((country) =>
-  //       country.name.toLowerCase().includes(name.toLowerCase())
-  //     )
-  //     props.setcountries(filteredCountries)
-  //   } else {
-  //     props.setcountries(data)
-  //   }
-  // }
   useEffect(() => {}, [props])
 
   return (

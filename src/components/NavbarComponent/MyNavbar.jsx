@@ -27,7 +27,7 @@ const MyNavbar = () => {
           <h5 className='mb-0 fw-bold'>Where in the world?</h5>
         </div>
         <div
-          className='col-6 d-flex justify-content-end align-items-center'
+          className='col-6 d-flex justify-content-end align-items-center cursor-pointer'
           onClick={() => {
             setTheme(!theme)
             setColorTheme()
