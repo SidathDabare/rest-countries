@@ -14,6 +14,7 @@
 .flag-card {
   height: 300px !important;
   max-height: 300px !important;
+  min-width: 220px !important;
   border: none;
   cursor: pointer;
   box-shadow: var(--shadow-dark);
@@ -36,4 +37,9 @@
   background-color: var(--very--light--gray);
   color: var(--very-dark-blue);
   border: var(--thing-border) !important;
+}
+@media only screen and (max-width: 768px) {
+  small {
+    font-size: 12px !important;
+  }
 }

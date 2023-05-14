@@ -10,7 +10,7 @@ import { useEffect } from "react"
 const SearchBarComponent = (props) => {
   const themeColor = useSelector((state) => state.setColor.selectedColor)
 
-  useEffect(() => {}, [props])
+  useEffect(() => {}, [])
 
   return (
     <div className='search-bar col-12'>
@@ -40,7 +40,7 @@ const SearchBarComponent = (props) => {
               placeholder='Search for a country'
               aria-label='Search for a country'
               aria-describedby='basic-addon1'
-              onChange={(e) => props.setsearch(e.target.value)}
+              onChange={(e) => props.searchByName(e.target.value)}
             />
           </InputGroup>
         </div>

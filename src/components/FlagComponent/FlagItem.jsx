@@ -23,21 +23,26 @@ const FlagItem = (props) => {
       <Card
         onClick={async () => {
           await dispatch(selectedCountry(country))
-          await navigate(`/${country.name}`)
+          await navigate(`/${country.name.common}`)
         }}
         className={
           !themeColor
             ? "flag-card col-9  mx-auto flag-card-dark"
             : "flag-card col-9  mx-auto flag-card-light"
         }>
-        <Card.Img
-          variant='top'
-          src={country.flags.png}
-          className='flag-card-image'
-        />
+        {country.flags.png ? (
+          <Card.Img
+            variant='top'
+            src={country.flags.png}
+            className='flag-card-image'
+          />
+        ) : (
+          ""
+        )}
+
         <Card.Body>
           <Card.Title className='fw-bold text-truncate'>
-            {country.name}
+            {country.name.common}
           </Card.Title>
           <Card.Text>
             <small className='flag-card-text text-truncate'>
@@ -52,7 +57,11 @@ const FlagItem = (props) => {
             <br />
             <small className='flag-card-text text-truncate'>
               <span className='fw-bold '>Capital : </span>
-              <span>{country.capital}</span>
+              <span className='text-truncate'>
+                {country.capital && country.capital.length > 0
+                  ? country.capital[0]
+                  : "No Capital"}
+              </span>
             </small>
           </Card.Text>
         </Card.Body>

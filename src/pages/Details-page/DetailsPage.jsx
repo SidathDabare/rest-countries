@@ -11,17 +11,32 @@ const DetailsPage = () => {
   const selectedCountry = useSelector(
     (state) => state.setCountry.selectedCountry
   )
+
+  // get the currency code from the selectedCountry object
+  const currencyCode = Object.keys(selectedCountry.currencies)[0]
+
+  // get the currency name from the selectedCountry object
+  const currencyName = selectedCountry.currencies[currencyCode].name
+
+  // get the nativeName from the selectedCountry object
+  const nativeName = Object.keys(selectedCountry.name.nativeName)[0]
+
+  // get the nativeName from the selectedCountry object
+  const nativeNameValue = selectedCountry.name.nativeName[nativeName].common
+
+  // get all languages from the selectedCountry object
+  const languagesValue = Object.values(selectedCountry.languages)
+
   const navigate = useNavigate()
   useEffect(() => {
     console.log(selectedCountry)
-    console.log(themeColor)
   }, [])
   return (
     <div
       className={
         !themeColor
-          ? "details-page col-12 mx-auto details-page-dark"
-          : "details-page col-12 mx-auto details-page-light"
+          ? "details-page col-12 mx-auto dark-theame"
+          : "details-page col-12 mx-auto light-theame"
       }>
       <div className='col-11 mx-auto'>
         <div className='col-12 detail-page-top'>
@@ -40,51 +55,64 @@ const DetailsPage = () => {
           <div className='left-container col-11 col-sm-11 col-md-8 col-lg-6 d-flex justify-content-around align-items-center'>
             <img
               className='detail-page-img'
-              src={selectedCountry.flags.png}
+              src={selectedCountry.flags.png ? selectedCountry.flags.png : ""}
               alt='flag'
             />
           </div>
           <div className='right-container col-12 col-sm-9 col-md-8 col-lg-6 mx-auto'>
             <div className='col-11 mx-auto'>
-              <h1 className='pb-2'>{selectedCountry.name}</h1>
+              <h3 className='pb-2 fw-bold'>
+                {selectedCountry.name.common ? selectedCountry.name.common : ""}
+              </h3>
             </div>
             <div className='col-11 mx-auto d-flex flex-column flex-lg-row mx-auto justify-content-between align-items-start'>
               <div className='col-12 col-sm-12 col-md-12 col-lg-6 py-2 mt-2'>
                 <small className='mb-0'>
                   <span className='fw-bold'>Native Name : </span>
-                  <span>{selectedCountry.nativeName}</span>
+                  <span>{nativeNameValue ? nativeNameValue : ""}</span>
                 </small>
                 <br />
                 <small className='mb-0'>
                   <span className='fw-bold'>Population : </span>
-                  <span>{selectedCountry.population}</span>
+                  <span>
+                    {selectedCountry.population
+                      ? selectedCountry.population
+                      : ""}
+                  </span>
                 </small>
                 <br />
                 <small className='mb-0'>
                   <span className='fw-bold'>Region : </span>
-                  <span>{selectedCountry.region}</span>
+                  <span>
+                    {selectedCountry.region ? selectedCountry.region : ""}
+                  </span>
                 </small>
                 <br />
                 <small className='mb-0'>
                   <span className='fw-bold'>Sub Region : </span>
-                  <span>{selectedCountry.subregion}</span>
+                  <span>
+                    {selectedCountry.subregion ? selectedCountry.subregion : ""}
+                  </span>
                 </small>
                 <br />
                 <small className='mb-0'>
                   <span className='fw-bold'>Capital : </span>
-                  <span>{selectedCountry.capital}</span>
+                  <span>
+                    {selectedCountry.capital &&
+                    selectedCountry.capital.length > 0
+                      ? selectedCountry.capital.map((item) => item)
+                      : "No Capital"}
+                  </span>
                 </small>
               </div>
               <div className='col-12 col-sm-12 col-md-12 col-lg-6 py-2 mt-2'>
                 <small className='mb-0'>
                   <span className='fw-bold'>Top Level Domain : </span>
-                  {selectedCountry.topLevelDomain.length > 0
-                    ? selectedCountry.topLevelDomain.map((domain, i) => (
+                  {selectedCountry.tld && selectedCountry.tld.length > 0
+                    ? selectedCountry.tld.map((domain, i) => (
                         <span key={i}>
                           {domain}
-                          {i === selectedCountry.topLevelDomain.length - 1
-                            ? ""
-                            : ", "}
+                          {i === selectedCountry.tld.length - 1 ? "" : ", "}
                         </span>
                       ))
                     : ""}
@@ -92,18 +120,16 @@ const DetailsPage = () => {
                 <br />
                 <small className='mb-0'>
                   <span className='fw-bold'>Currencies : </span>
-                  <span>{selectedCountry.currencies[0].name}</span>
+                  <span>{currencyName}</span>
                 </small>
                 <br />
                 <small className='mb-0'>
                   <span className='fw-bold'>Languages: </span>
-                  {selectedCountry.languages.length > 0
-                    ? selectedCountry.languages.map((language, i) => (
+                  {languagesValue && languagesValue.length > 0
+                    ? languagesValue.map((language, i) => (
                         <span key={i}>
-                          {language.name}
-                          {i === selectedCountry.languages.length - 1
-                            ? ""
-                            : ", "}
+                          {language}
+                          {i === languagesValue.length - 1 ? "" : ", "}
                         </span>
                       ))
                     : ""}
@@ -117,8 +143,8 @@ const DetailsPage = () => {
                   <span> Border Countries : </span>
                 </div>
 
-                <div className='col-12 col-md-10 d-flex align-items-center'>
-                  {selectedCountry.borders.length > 0
+                <div className='col-12 col-md-10 d-inline-flex flex-wrap align-items-center'>
+                  {selectedCountry.borders && selectedCountry.borders.length > 0
                     ? selectedCountry.borders.map((border, i) => (
                         <span
                           key={i}
@@ -130,7 +156,7 @@ const DetailsPage = () => {
                           {border}
                         </span>
                       ))
-                    : ""}
+                    : "None"}
                 </div>
               </small>
             </div>

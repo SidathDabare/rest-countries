@@ -23,11 +23,11 @@ const MyNavbar = () => {
           : "col-12 my-navbar my-nav-light border-bottom"
       }>
       <div className='nav-container col-11 d-flex mx-auto align-items-center'>
-        <div className='col-6'>
+        <div className='col-6 nav-left'>
           <h5 className='mb-0 fw-bold'>Where in the world?</h5>
         </div>
         <div
-          className='col-6 d-flex justify-content-end align-items-center cursor-pointer'
+          className='nav-right col-6 d-flex justify-content-end align-items-center cursor-pointer'
           onClick={() => {
             setTheme(!theme)
             setColorTheme()

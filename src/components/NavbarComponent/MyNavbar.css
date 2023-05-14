@@ -1,27 +1,26 @@
 /** @format */
-:root{
---dark-blue : hsl(209, 23%, 22%);
---very-dark-blue: hsl(207, 26%, 17%);
---dark-gray: hsl(0, 0%, 52%);
---very--light--gray: hsl(0, 0%, 98%);
---light-gray: hsl(0, 0%, 100%):
+:root {
+  --dark-blue-element: hsl(209, 23%, 22%);
+  --very-dark-blue-bg: hsl(207, 26%, 17%);
+  --very-dark-text: hsl(200, 15%, 8%);
+  --dark-gray-input: hsl(0, 0%, 52%);
+  --very--light--gray-bg: hsl(0, 0%, 98%);
+  --light-gray-text: hsl(0, 0%, 100%);
 }
 .my-navbar {
-  height: 60px; 
-  width: 100% !important; 
+  height: 60px;
+  width: 100% !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-
 }
 .my-nav-dark {
-  background-color: var(--dark-blue);
-  color: var(--very--light--gray);
+  background-color: var(--dark-blue-element);
+  color: var(--light-gray-text);
 }
 .my-nav-light {
-  background-color: var(--very--light--gray);
-  color: var(--very-dark-blue);
+  background-color: var(--light-gray-text);
+  color: var(--very-dark-text);
 }
 .icon-sizes {
   font-size: 16px !important;
@@ -34,9 +33,14 @@
 }
 @media only screen and (max-width: 768px) {
   .nav-container div h5 {
-   font-size: small;
+    font-size: small;
   }
   .font-size {
-   font-size: 12px !important;
+    font-size: 12px !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .nav-right h6 {
+    font-size: 12px !important;
   }
 }
