@@ -13,9 +13,7 @@ const DetailsPage = () => {
   )
 
   // get the currency code from the selectedCountry object
-  const currencyCode = Object.keys(
-    selectedCountry.currencies ? selectedCountry.currencies : ""
-  )[0]
+  const currencyCode = Object.keys(selectedCountry.currencies)[0]
 
   // get the currency name from the selectedCountry object
   const currencyName = selectedCountry.currencies[currencyCode].name
