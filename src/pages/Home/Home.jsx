@@ -70,9 +70,7 @@ const Home = () => {
     if (search.length > 0) {
       searchByName(search)
     } else getCountries()
-    if (selectedCountry === null || selectedCountry === undefined) {
-      dispatch(selectedCountry(countries[0]))
-    }
+
     // console.log(countries)
   }, [loading, error, search])
   return (

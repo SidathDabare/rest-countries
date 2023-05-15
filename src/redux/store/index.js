@@ -1,7 +1,6 @@
 /** @format */
 
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
-import { encryptTransform } from "redux-persist-transform-encrypt"
 import { persistStore, persistReducer } from "redux-persist"
 import { setColorReducer } from "../reducer/setColorReducer"
 
