@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useEffect } from "react"
-
 import Card from "react-bootstrap/Card"
 import "./FlagItem.css"
 import { useDispatch, useSelector } from "react-redux"
@@ -10,26 +9,11 @@ import { selectedCountry } from "../../redux/action"
 
 const FlagItem = (props) => {
   const themeColor = useSelector((state) => state.setColor.selectedColor)
-  const setCountry = useSelector((state) => state.setCountry.selectedCountry)
 
   const { country } = props
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // function to if selectedCountry is null dipatch 1st item in countries array
-  // navigate to display page
-  // else dispatch selectedCountry
-  // navigate to display page
-
-  // const handleCountry = async () => {
-  //   if (setCountry === null) {
-  //     await dispatch(selectedCountry(country))
-  //     await navigate(`/${country.flag}`)
-  //   } else {
-  //     await dispatch(selectedCountry(country))
-  //     await navigate(`/${country.flag}`)
-  //   }
-  // }
 
   useEffect(() => {
     // console.log(country)

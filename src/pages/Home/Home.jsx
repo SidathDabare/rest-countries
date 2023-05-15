@@ -5,13 +5,8 @@ import "./Home.css"
 // import data from "../../data.json"
 import FlagItem from "../../components/FlagComponent/FlagItem"
 import Spinner from "react-bootstrap/Spinner"
-import { useDispatch, useSelector } from "react-redux"
 
 const Home = () => {
-  const selectedCountry = useSelector(
-    (state) => state.setCountry.selectedCountry
-  )
-  const dispatch = useDispatch()
   const [countries, setCountries] = useState([])
 
   const [search, setSearch] = useState("")
@@ -23,17 +18,16 @@ const Home = () => {
       const response = await fetch("https://restcountries.com/v3.1/all")
       const data = await response.json()
       // console.log(data[0])
-      setLoading(true)
+      setLoading(false)
       setCountries(data)
     } catch (error) {
       console.log(error)
       setError(true)
-      setLoading(false)
+      setLoading(true)
     }
   }
 
   const searchByName = (name) => {
-    // filter by name
     if (name.length > 0) {
       const filterByName = countries.filter((country) =>
         country.name.common.toLowerCase().includes(name.toLowerCase())
@@ -57,12 +51,12 @@ const Home = () => {
           `https://restcountries.com/v3.1/region/${region}`
         )
         const data = await response.json()
-        setLoading(true)
+        setLoading(false)
         setCountries(data)
       } catch (error) {
         console.log(error)
         setError(true)
-        setLoading(false)
+        setLoading(true)
       }
   }
 
