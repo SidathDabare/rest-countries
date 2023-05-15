@@ -5,8 +5,13 @@ import "./Home.css"
 // import data from "../../data.json"
 import FlagItem from "../../components/FlagComponent/FlagItem"
 import Spinner from "react-bootstrap/Spinner"
+import { useDispatch, useSelector } from "react-redux"
 
 const Home = () => {
+  const selectedCountry = useSelector(
+    (state) => state.setCountry.selectedCountry
+  )
+  const dispatch = useDispatch()
   const [countries, setCountries] = useState([])
 
   const [search, setSearch] = useState("")
@@ -65,7 +70,9 @@ const Home = () => {
     if (search.length > 0) {
       searchByName(search)
     } else getCountries()
-
+    if (selectedCountry === null || selectedCountry === undefined) {
+      dispatch(selectedCountry(countries[0]))
+    }
     // console.log(countries)
   }, [loading, error, search])
   return (

@@ -15,7 +15,7 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/:country' element={<DetailsPage />} />
+          <Route path='/:flag' element={<DetailsPage />} />
         </Routes>
       </BrowserRouter>
     </div>
