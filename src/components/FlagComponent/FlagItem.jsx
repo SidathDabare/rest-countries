@@ -37,6 +37,7 @@ const FlagItem = (props) => {
             variant='top'
             src={country.flags.png}
             className='flag-card-image'
+            alt="country's flag"
           />
         ) : (
           ""
