@@ -47,7 +47,7 @@ const DetailsPage = () => {
           <div className='col-11 mx-auto'>
             <div className='col-12 detail-page-top'>
               <button
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/rest-countries")}
                 className={
                   !themeColor
                     ? "back-btn d-flex align-items-center details-page-dark"

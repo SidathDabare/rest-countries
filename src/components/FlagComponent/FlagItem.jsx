@@ -24,7 +24,7 @@ const FlagItem = (props) => {
       <Card
         onClick={async () => {
           await dispatch(selectedCountry(country))
-          await navigate(`/${country.name.common}`)
+          await navigate(`/deatails/${country.name.common}`)
         }}
         // onClick={handleCountry}
         className={
