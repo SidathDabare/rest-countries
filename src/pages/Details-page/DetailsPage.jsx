@@ -32,6 +32,9 @@ const DetailsPage = () => {
     return languages
   }
 
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
   const navigate = useNavigate()
   useEffect(() => {
     console.log(selectedCountry)
@@ -87,7 +90,7 @@ const DetailsPage = () => {
                       <span className='fw-bold'>Population : </span>
                       <span>
                         {selectedCountry.population
-                          ? selectedCountry.population
+                          ? numberWithCommas(selectedCountry.population)
                           : ""}
                       </span>
                     </small>
