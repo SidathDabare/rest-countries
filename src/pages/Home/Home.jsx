@@ -12,18 +12,18 @@ const Home = () => {
   const [search, setSearch] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-
+  console.log(loading)
   const getCountries = async () => {
     try {
       const response = await fetch("https://restcountries.com/v3.1/all")
       const data = await response.json()
       // console.log(data[0])
-      setLoading(false)
+      setLoading(true)
       setCountries(data)
     } catch (error) {
       console.log(error)
       setError(true)
-      setLoading(true)
+      setLoading(false)
     }
   }
 
@@ -33,8 +33,9 @@ const Home = () => {
         country.name.common.toLowerCase().includes(name.toLowerCase())
       )
       // console.log(filterByName)
-      setLoading(true)
+
       setCountries(filterByName)
+      setLoading(true)
     } else if (name.length === 0) {
       getCountries()
       setLoading(false)
@@ -44,19 +45,18 @@ const Home = () => {
   const filterByRegion = async (region) => {
     if (region === "all") {
       getCountries()
-      setLoading(false)
     } else
       try {
         const response = await fetch(
           `https://restcountries.com/v3.1/region/${region}`
         )
         const data = await response.json()
-        setLoading(false)
+        setLoading(true)
         setCountries(data)
       } catch (error) {
         console.log(error)
         setError(true)
-        setLoading(true)
+        setLoading(false)
       }
   }
 
