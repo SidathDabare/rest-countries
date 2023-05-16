@@ -13,9 +13,9 @@ const SearchBarComponent = (props) => {
   useEffect(() => {}, [])
 
   return (
-    <div className='search-bar col-12'>
-      <div className='search-container col-11 d-flex flex-column flex-md-row mx-auto justify-content-between align-items-center'>
-        <div className='col-10 col-sm-10 col-md-5 col-lg-5'>
+    <div className='search-bar col-11 mx-auto px-0'>
+      <div className='search-container col-12 d-flex flex-column flex-md-row justify-content-between align-items-center'>
+        <div className='col-12 col-sm-10 col-md-5 col-lg-5'>
           <InputGroup
             className={
               !themeColor

@@ -6,6 +6,7 @@ import "./DetailsPage.css"
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace"
 import { useNavigate } from "react-router-dom"
 import Spinner from "react-bootstrap/Spinner"
+import Container from "react-bootstrap/Container"
 
 const DetailsPage = () => {
   const themeColor = useSelector((state) => state.setColor.selectedColor)
@@ -38,13 +39,13 @@ const DetailsPage = () => {
   return (
     <>
       {selectedCountry && selectedCountry.flags ? (
-        <div
+        <Container
           className={
             !themeColor
-              ? "details-page col-12 mx-auto dark-theame"
-              : "details-page col-12 mx-auto light-theame"
+              ? "details-page col-12 col-md-10 mx-auto dark-theame"
+              : "details-page col-12 col-md-10 mx-auto light-theame"
           }>
-          <div className='col-11 mx-auto'>
+          <div className='col-12 mx-auto px-4'>
             <div className='col-12 detail-page-top'>
               <button
                 onClick={() => navigate("/rest-countries")}
@@ -54,11 +55,11 @@ const DetailsPage = () => {
                     : "back-btn d-flex align-items-center details-page-light"
                 }>
                 <KeyboardBackspaceIcon />
-                <span className='mx-1 font-size'>Back</span>
+                <span className='mx-1 font-size fw-bold '>Back</span>
               </button>
             </div>
             <div className='detail-page-bottom col-12 d-flex flex-column flex-lg-row mx-auto justify-content-between align-items-center'>
-              <div className='left-container col-11 col-sm-11 col-md-8 col-lg-6 d-flex justify-content-around align-items-center'>
+              <div className='left-container col-11 col-sm-11 col-md-8 col-lg-6 d-flex justify-content-left align-items-center'>
                 <img
                   className='detail-page-img'
                   src={
@@ -169,7 +170,7 @@ const DetailsPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       ) : (
         <div className='col-12 vh-100 d-flex justify-content-center align-items-center'>
           <Spinner animation='grow' variant='info' />

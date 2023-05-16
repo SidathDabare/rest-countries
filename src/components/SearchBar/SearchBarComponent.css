@@ -28,6 +28,8 @@
 }
 .input-item {
   border: none !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
 }
 .border-left-none {
   border-left: none;
@@ -56,7 +58,10 @@
   box-shadow: var(--shadow-very-light) !important;
   transition: all 0.5s ease-in-out;
 }
-
+.select-item {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
 .select-item-shadow-dark {
   border: none !important;
   outline: none !important;

@@ -9,10 +9,12 @@
 }
 .my-navbar {
   height: 60px;
-  width: 100% !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.my-navbar > div {
+  width: 78%;
 }
 .my-nav-dark {
   background-color: var(--dark-blue-element);
@@ -25,8 +27,8 @@
 .icon-sizes {
   font-size: 16px !important;
 }
-.font-size {
-  font-size: 16px !important;
+.font-size-small {
+  font-size: 14px !important;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -35,7 +37,7 @@
   .nav-container div h5 {
     font-size: small;
   }
-  .font-size {
+  .font-size-small {
     font-size: 12px !important;
   }
 }

@@ -43,21 +43,21 @@ const FlagItem = (props) => {
         )}
 
         <Card.Body>
-          <Card.Title className='fw-bold text-truncate'>
+          <p className='fw-bold text-truncate font-size-smal'>
             {country.name.common}
-          </Card.Title>
+          </p>
           <Card.Text>
-            <small className='flag-card-text text-truncate'>
+            <small className='flag-card-text text-truncate font-size-smallest'>
               <span className='fw-bold'> Population : </span>
               <span>{country.population}</span>
             </small>
             <br />
-            <small className='flag-card-text text-truncate'>
+            <small className='flag-card-text text-truncate font-size-smallest'>
               <span className='fw-bold'>Region : </span>
               <span>{country.region}</span>
             </small>
             <br />
-            <small className='flag-card-text text-truncate'>
+            <small className='flag-card-text text-truncate font-size-smallest'>
               <span className='fw-bold '>Capital : </span>
               <span className='text-truncate'>
                 {country.capital && country.capital.length > 0
